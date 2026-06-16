@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacitor Single File App</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent: #6200ee;
+            --text-color: #ffffff;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 { margin-top: 0; color: #bb86fc; }
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+        button:active { background-color: #3700b3; }
+        .status {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #a0a0a0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Capacitor App</h1>
+        <p>This entire mobile application interface runs smoothly out of a single HTML file!</p>
+        <button id="actionBtn">Check Device Status</button>
+        <div id="statusOutput" class="status">Click the button above.</div>
+    </div>
+
+    <script>
+        // Simple interactive function
+        document.getElementById('actionBtn').addEventListener('click', () => {
+            const output = document.getElementById('statusOutput');
+            
+            // Check if running inside a Capacitor native shell
+            if (window.Capacitor && window.Capacitor.isNativePlatform()) {
+                output.innerText = `Running natively on: ${window.Capacitor.getPlatform().toUpperCase()}`;
+            } else {
+                output.innerText = "Running inside a standard web browser.";
+            }
+        });
+    </script>
+</body>
+</html>
