@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.singlefileapp",
+  "appName": "SingleFileApp",
+  "webDir": "public",
+  "bundledWebRuntime": false
+}
