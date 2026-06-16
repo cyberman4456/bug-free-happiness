@@ -1,0 +1,16 @@
+{
+  "name": "capacitor-single-file-app",
+  "version": "1.0.0",
+  "description": "A single file web app wrapped in Capacitor",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'No build translation step needed. Web app is static public folders.'"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/android": "^6.0.0"
+  }
+}
